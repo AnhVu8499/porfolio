@@ -1,0 +1,7 @@
+.right {
+    background-color: var(--right-bg-color);
+    color: var(--left-bg-color);
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 65%;
+}

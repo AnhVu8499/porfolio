@@ -1,0 +1,14 @@
+/* styles.css */
+body {
+    margin: 0;
+    overflow: hidden; 
+}
+
+.moving-button {
+    position: absolute;
+    transition: left 3s ease, top 3s ease;
+    width:200px;    
+    height:200px;
+    border-radius: 50%;
+}
+
