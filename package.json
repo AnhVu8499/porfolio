@@ -1,5 +1,12 @@
 {
   "devDependencies": {
-    "nodemon": "^3.1.5"
+    "gh-pages": "^6.3.0",
+    "nodemon": "^3.1.5",
+    "homepage": "https://anhvu8499.github.io/porfolio/>"
+  },
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
+
