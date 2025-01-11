@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.813c51d2.css",
+    "main.js": "/static/js/main.35a714f9.js",
+    "static/media/quiz_logo.png": "/static/media/quiz_logo.6a35e07aef15fea1a123.png",
+    "static/media/editor_logo.png": "/static/media/editor_logo.ed9f6ab6279499eeee0d.png",
+    "static/media/Anh_Vu_Resume.pdf": "/static/media/Anh_Vu_Resume.9b6caff7aafe40af0954.pdf",
+    "static/media/nails-bg.jpg": "/static/media/nails-bg.85922b0d2d70e63e1422.jpg",
+    "index.html": "/index.html",
+    "main.813c51d2.css.map": "/static/css/main.813c51d2.css.map",
+    "main.35a714f9.js.map": "/static/js/main.35a714f9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.813c51d2.css",
+    "static/js/main.35a714f9.js"
+  ]
+}
