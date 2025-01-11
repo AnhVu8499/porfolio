@@ -1,4 +1,3 @@
-// MovingButton.js
 import React, { useEffect, useRef, useState } from 'react';
 import './styles.css';
 
@@ -11,11 +10,10 @@ const isCollidiing = (rect1, rect2) => {
     );
 };
 
-const Button = ({ id, duration }) => {
+const Button = ({ id, duration, collidableRefs }) => {
     const buttonRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
     const [position, setPosition] = useState({ x:0, y:0 });
-    const [velocity, setVelocity] = useState({ x:2, y:2 });
     
     const moveButtonRandomly = () => {
         const button = buttonRef.current;
@@ -25,34 +23,49 @@ const Button = ({ id, duration }) => {
             const buttonWidth = button.offsetWidth;
             const buttonHeight = button.offsetHeight;
     
-            // Calculate the bounds for the 65% right side of the screen
+            // Calculate the bounds for the right side of the screen
             const rightSideWidth = windowWidth * 0.55;
             const rightSideXStart = windowWidth * 0.45; // Starting X position of the right side
             const maxX = rightSideWidth - buttonWidth;
             const maxY = windowHeight - buttonHeight;
-    
-            // Generate random positions within the 65% right side of the screen
-            const randomX = Math.random() * maxX;
-            const randomY = Math.random() * maxY;
 
-            setPosition({
-                x:rightSideXStart + randomX,
-                y:randomY
-            });
-            // Position the button within the right 65% of the screen
-            button.style.left = `${rightSideXStart + randomX}px`; 
-            button.style.top = `${randomY}px`;
+            let newPosition;
+            let collisionDectected;
+            do {
+                const randomX = Math.random() * maxX;
+                const randomY = Math.random() * maxY;
+                newPosition = {
+                    x:rightSideXStart + randomX,
+                    y:randomY,
+                };
+                button.style.left = `${newPosition.x}px`;
+                button.style.top  = `${newPosition.y}px`; 
+
+                collisionDectected = collidableRefs.some(ref => {
+                    const collidable = ref.current;
+                    if (collidable) {
+                        const buttonRect = button.getBoundingClientRect();
+                        const collidableRect = collidable.getBoundingClientRect();
+                        return isCollidiing(buttonRect, collidableRect);
+                    }
+                    return false;
+                });
+            } while (collisionDectected);
+            setPosition(newPosition);
         } 
     };  
 
     useEffect(() => {
         // Only move the button if it's not hovered
         if (!isHovered) {
-            const intervalId = setInterval(moveButtonRandomly, duration * 2000);
+            const intervalId = setInterval(() => {
+                moveButtonRandomly();
+            }, duration * 2000);
 
             // Clean up interval on component unmount
             return () => clearInterval(intervalId);
         }
+        
     }, [duration, isHovered]);
 
     return (
@@ -61,11 +74,11 @@ const Button = ({ id, duration }) => {
             className="moving-button"
             id={`button-${id}`}
             onMouseEnter={() => {
-                setIsHovered(true)}}  // Stop movement on hover
+                setIsHovered(true)}} 
             onMouseLeave={() => {
-                setIsHovered(false)}} // Resume movement when not hovered
+                setIsHovered(false)}} 
         >
-            {id} {/* Name of the button  */}
+            {id}
         </button>
     );
 };

@@ -1,7 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .right {
     background-color: var(--right-bg-color);
     color: var(--left-bg-color);
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 65%;
+    height:100vh;
+}
+
+.gallery-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    align-items: center;
+    height: 100%;
+    gap: 0;
+    scroll-behavior: smooth;
+}
+
+.gallery-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
+}
+
+.gallery-item {
+    flex: 0 0 100%;
+    height:100vh;
+    scroll-snap-align: center;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s ease, z-index 0.5s ease, opacity 0.5s ease;
+    overflow: hidden; /* prevent vertically scrolling  */
+    display: flex; /* Centers content inside */
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.full-cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the container */
+    display: block;
 }
