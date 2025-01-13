@@ -50,3 +50,30 @@
     object-fit: cover; /* Ensure the image covers the container */
     display: block;
 }
+
+.btn-left {
+    margin-left: 10px;
+}
+
+.btn-right {
+    right: 10px;
+}
+
+.btn-left,
+.btn-right {
+    position: absolute;
+    z-index: 10;
+    background: none;
+    border: none;
+    color: var(--first-color);
+    font-size: 32px;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-left:hover,
+.btn-right:hover {
+    color: #f73f06; /* Change color on hover */
+    transform: scale(1.5); /* Slightly enlarge on hover */
+}
+

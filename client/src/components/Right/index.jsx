@@ -9,11 +9,12 @@
         const containerRef = useRef(null);
 
         const images = [
-            { id: 1, src: nail_logo, alt: 'Image A', url: "https://www.parisnailsbeauty.com/" },
-            { id: 2, src: editor_logo, alt: 'Image B', url: "https://sharededitor.onrender.com/" },
-            { id: 3, src: quiz_logo, alt: 'Image C', url: "https://anhvu8499.github.io/math-quiz/" }
+            { id: 1, src: nail_logo, alt: 'Nails', url: "https://www.parisnailsbeauty.com/" },
+            { id: 2, src: editor_logo, alt: 'Editor', url: "https://sharededitor.onrender.com/" },
+            { id: 3, src: quiz_logo, alt: 'Quiz', url: "https://anhvu8499.github.io/math-quiz/" }
         ];
-
+        
+        // Scrolling left and right
         const handleScroll = () => {
             const container = containerRef.current;
             if (!container) return;
@@ -41,6 +42,28 @@
             if (closestIndex !== activeIndex) {
                 setActiveIndex(closestIndex);
             }
+        };
+        
+        // Left and Right button clicked
+        const scrollToIndex = (index) => {
+            const container = containerRef.current;
+            if (!container || index < 0 || index >= images.length) return;
+    
+            const targetItem = container.children[index];
+            if (targetItem) {
+                targetItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        };
+        const handleLeftClick = () => {
+            const newIndex = Math.max(0, activeIndex - 1); // Move to the previous image
+            scrollToIndex(newIndex);
+            setActiveIndex(newIndex);
+        };
+    
+        const handleRightClick = () => {
+            const newIndex = Math.min(images.length - 1, activeIndex + 1); // Move to the next image
+            scrollToIndex(newIndex);
+            setActiveIndex(newIndex);
         };
         
 
@@ -81,6 +104,19 @@
                         </a>
                         </div>
                     ))}
+                    {/* Conditionally render left button */}
+                    {activeIndex > 0 && (
+                        <button className="btn-left" onClick={handleLeftClick}>
+                            &#8592; {/* Left arrow symbol*/}
+                        </button>
+                    )}
+                    {/* Conditionally render right button */}
+                    {activeIndex < images.length - 1 && (
+                        <button className="btn-right" onClick={handleRightClick}>
+                            &#8594; {/* Right arrow symbol*/}
+                        </button>
+                    )}
+                 
                 </div>
             </div>
         );
