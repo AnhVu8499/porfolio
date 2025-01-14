@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './styles.css';
 import resume from '../img/Anh_Vu_Resume.pdf';
 import avatar from '../img/avatar.jpg';
@@ -7,7 +7,7 @@ import Editor from '../project/Editor';
 import Nails from '../project/Nails';
 import Quiz from '../project/Quiz'; 
 
-const Left = () => {
+const Left = ({ activeIndex, onSetActiveIndex }) => {
     const btnRef = useRef(null);
     const infoRef = useRef(null);
     const nailRef = useRef(null);
@@ -16,12 +16,25 @@ const Left = () => {
     const [currentTarget, setCurrentTarget] = useState(0);
     const targets = [infoRef, nailRef, editorRef, quizRef];
 
+
+    useEffect(() => {
+        if (activeIndex >= 0 && activeIndex < targets.length) {
+            const targetRef = targets[activeIndex];
+            if (targetRef.current) {
+                targetRef.current.scrollIntoView({ behavior: 'smooth' });
+                setCurrentTarget(activeIndex);
+            }
+        }
+    }, [activeIndex]);
+
+
     const handleScrollDown = () => {
         if (currentTarget < targets.length - 1) {
             const nextTarget = currentTarget + 1;
             if (targets[nextTarget].current) {
                 targets[nextTarget].current.scrollIntoView({ behavior: 'smooth' });
                 setCurrentTarget(nextTarget);
+                onSetActiveIndex(nextTarget); // Update activeIndex in the parent component
             }
         }
     };
@@ -32,6 +45,7 @@ const Left = () => {
             if (targets[prevTarget].current) {
                 targets[prevTarget].current.scrollIntoView({ behavior: 'smooth' });
                 setCurrentTarget(prevTarget);
+                onSetActiveIndex(prevTarget); // Update activeIndex in the parent component
             }
         }
     };
@@ -81,11 +95,6 @@ const Left = () => {
 
                 {/* skills list*/}
                 <Skills />
-
-
-                {/* {Array.from({ length: 100 }).map((_, i) => (
-                    <p key={i}>Content line {i + 1}</p>
-                ))} */}
 
                 {/* philosophy */}
                 <div className="header">

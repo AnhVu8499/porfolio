@@ -89,6 +89,19 @@
         padding: 8px 16px;
         font-size: 0.9em;
     }
+    .btn-up,
+    .btn-down {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    .btn-up {
+        top: 15%;
+    }
+
+    .btn-down {
+        bottom: 15%;
+    }
 }
 
 .btn-up {
