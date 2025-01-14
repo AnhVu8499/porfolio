@@ -1,7 +1,7 @@
 .left {
     background-color: var(--left-bg-color);
     color: var(--right-bg-color);
-    height: 200vh;
+    min-height: 100vh;
     overflow-y: auto; /* Enable vertical scrolling */
     scroll-behavior: smooth;
     font-family: 'Arial', sans-serif;
@@ -23,19 +23,20 @@
     transition: color 0.3s;
 }
 
-.header {
-    margin-top: 30px;
-}
-
 .intro, .contact, .resume, 
-.about, .name, .role {
-    padding-bottom: 0.2em;
+.name, .role {
     text-align: center; 
 }
 
+.role, .name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}   
+
+
 .avatar {
-    width: 150px;
-    height: 150px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto;
@@ -44,15 +45,15 @@
     transition: transform 0.3s ease;
 }
 
-.about {
-    padding-top: 0.05em;
-}
-
 .address {
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     border-top: 2px solid var(--first-color);   
-    padding: 10px;
+    padding:5px;
+}
+
+.edu {
+    font-style: italic;
 }
 
 .contact, .resume {
@@ -77,26 +78,6 @@
 
 .resume-link:hover {
     color: var(--first-color);
-}
-
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.skills-list p {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    gap: 10px;
-}
-
-.skill-logo {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    vertical-align: middle;
 }
 
 @media (max-width: 768px) {

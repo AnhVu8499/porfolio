@@ -1,0 +1,19 @@
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skills-list p {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    gap: 10px;
+}
+
+.skill-logo {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    vertical-align: middle;
+}
