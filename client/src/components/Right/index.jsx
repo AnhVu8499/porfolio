@@ -5,7 +5,7 @@ import quiz_logo from '../img/quiz_logo.png';
 import editor_logo  from '../img/editor_logo.png';   
 import welcome from '../img/welcome.png';
 
-const Right = ({ activeIndex, onSetActiveIndex }) => {
+const Right = ({ activeIndex, onSetActiveIndex, isSyncing }) => {
     //const [activeIndex, setActiveIndex] = useState(0);
     const containerRef = useRef(null);
 
@@ -18,14 +18,14 @@ const Right = ({ activeIndex, onSetActiveIndex }) => {
     
     // Scroll to the active image when activeIndex changes
     useEffect(() => {
-        if (activeIndex >= 0 && activeIndex < images.length) {
+        if (!isSyncing && activeIndex >= 0 && activeIndex < images.length) {
             const container = containerRef.current;
             const targetItem = container.children[activeIndex];
             if (targetItem) {
                 targetItem.scrollIntoView({ behavior: 'smooth', inline: 'center' });
             }
         }
-    }, [activeIndex]);
+    }, [activeIndex, isSyncing]);
 
     // Scrolling left and right
     const handleScroll = () => {

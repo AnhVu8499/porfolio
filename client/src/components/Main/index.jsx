@@ -5,31 +5,33 @@ import Left from '../Left';
 
 const Main = () => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const [isSyncing, setIsSyncing] = useState('');
+    const [isSyncing, setIsSyncing] = useState(false); // Added to prevent conflicting scroll actions
 
-    // const handleSetActiveIndex = (index) => {
-    //     if (!isSyncing) {
-    //         setActiveIndex(index);
-    //     }
-    // };
-
-    const handleSetActiveIndex = (index, source) => { 
-        if (isSyncing !== source) {
-            setIsSyncing(source);
-            setActiveIndex(index);
+    // Function to update activeIndex when scrolling
+    const handleSetActiveIndex = (index, source) => {
+        if (!isSyncing) {
+            setIsSyncing(true); // Lock synchronization temporarily
+            setActiveIndex(index); // Update activeIndex
             setTimeout(() => {
-                setIsSyncing(false);
-            }, 500); // Adjust the timeout as needed
+                setIsSyncing(false); // Unlock synchronization after timeout
+            }, 500); // Adjust timeout as needed
         }
-    }
+    };
 
     return (
         <div className="main">
             <div className="left">
-                <Left activeIndex={activeIndex} onSetActiveIndex={(index) => handleSetActiveIndex(index, 'left')} isSyncing={isSyncing} />
+                <Left 
+                    activeIndex={activeIndex} 
+                    onSetActiveIndex={(index) => handleSetActiveIndex(index, 'left')} 
+                />
             </div>
             <div className="right">
-            <Right activeIndex={activeIndex} onSetActiveIndex={(index) => handleSetActiveIndex(index, 'right')} isSyncing={isSyncing} />
+                <Right 
+                    activeIndex={activeIndex} 
+                    onSetActiveIndex={(index) => handleSetActiveIndex(index, 'right')} 
+                    isSyncing={isSyncing} 
+                />
             </div>
         </div>
     );

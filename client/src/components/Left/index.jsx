@@ -31,10 +31,10 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
     const handleScrollDown = () => {
         if (currentTarget < targets.length - 1) {
             const nextTarget = currentTarget + 1;
+            onSetActiveIndex(nextTarget); // Update activeIndex in the parent component
             if (targets[nextTarget].current) {
                 targets[nextTarget].current.scrollIntoView({ behavior: 'smooth' });
                 setCurrentTarget(nextTarget);
-                onSetActiveIndex(nextTarget); // Update activeIndex in the parent component
             }
         }
     };
@@ -42,10 +42,10 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
     const handleScrollUp = () => {
         if (currentTarget > 0) {
             const prevTarget = currentTarget - 1;
+            onSetActiveIndex(prevTarget); // Update activeIndex in the parent component
             if (targets[prevTarget].current) {
                 targets[prevTarget].current.scrollIntoView({ behavior: 'smooth' });
                 setCurrentTarget(prevTarget);
-                onSetActiveIndex(prevTarget); // Update activeIndex in the parent component
             }
         }
     };
