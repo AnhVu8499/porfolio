@@ -17,6 +17,32 @@ const Nails = React.forwardRef((props, ref) => {
                 the booking details are forwarded to the owner, 
                 ensuring seamless communication and service delivery.
             </p>
+            <p className="tech-used">
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
+                        alt="React" className="skill-logo" />
+                    React
+                </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" 
+                        alt="Node.js" className="skill-logo" />
+                    Node.js
+                </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" 
+                        alt="Express" className="skill-logo" />
+                    Express
+                </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" 
+                        alt="MongoDB" className="skill-logo" />
+                    MongoDB
+                </p>
+            </p>
         </div>
     );
 });

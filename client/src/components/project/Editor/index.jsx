@@ -16,6 +16,38 @@ const Editor = React.forwardRef((props, ref) => {
                 document management, and real-time updates,
                 making it an ideal solution for collaborative projects and remote teamwork.
             </p>
+            <p className="tech-used">
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
+                        alt="React" className="skill-logo" />
+                    React
+                </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" 
+                        alt="MongoDB" className="skill-logo" />
+                    MongoDB
+                </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-original.svg" 
+                        alt="Django" className="skill-logo" />
+                    Django
+                </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
+                        alt="Python" className="skill-logo" />
+                    Python
+                </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" 
+                        alt="Redis" className="skill-logo" />
+                    Redis
+                </p>
+            </p>
         </div>
     );
 });

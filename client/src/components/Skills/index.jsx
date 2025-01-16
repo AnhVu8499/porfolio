@@ -55,6 +55,24 @@ const Skills = () => {
                         alt="Git" className="skill-logo" />
                     Git
                 </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-original.svg" 
+                        alt="Django" className="skill-logo" />
+                    Django
+                </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
+                        alt="Python" className="skill-logo" />
+                    Python
+                </p>
+                <p>
+                    <img 
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" 
+                        alt="Redis" className="skill-logo" />
+                    Redis
+                </p>
             </span>
         </div>
     )

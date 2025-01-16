@@ -89,20 +89,33 @@
         padding: 8px 16px;
         font-size: 0.9em;
     }
+
+    /* Adjust the position and size of buttons */
     .btn-up,
     .btn-down {
-        padding: 8px 16px;
-        font-size: 0.9em;
+        left: 50%;
+        padding: 10px 20px;   /* Increase padding for easier touch interaction */
+        font-size: 1.2em;      /* Slightly increase the font size for visibility */
+        opacity: 0.8;          /* Set a higher opacity on mobile for better visibility */
     }
 
     .btn-up {
-        top: 15%;
+        top: 10%;             /* Adjust top positioning */
     }
 
     .btn-down {
-        bottom: 15%;
+        bottom: 10%;          /* Adjust bottom positioning */
+    }
+
+    /* Make buttons more accessible and visible */
+    .btn-up:hover,
+    .btn-down:hover {
+        opacity: 1;
+        color: #f73f06; /* Change color on hover */
+        transform: scale(1.2); /* Slightly enlarge on hover */
     }
 }
+
 
 .btn-up {
     top:20%;
