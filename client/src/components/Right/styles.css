@@ -51,6 +51,12 @@
     display: block;
 }
 
+.welcome {
+    width: 20%;       /* Adjust the size of the welcome image */
+    height: auto;      /* Adjust the height of the welcome image */
+    object-fit: fill; /* Use contain to maintain aspect ratio */
+}
+
 .btn-left {
     margin-left: 10px;
 }

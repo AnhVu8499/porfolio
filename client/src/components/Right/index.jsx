@@ -3,7 +3,7 @@ import './styles.css';
 import nail_logo from '../img/nails-bg.jpg';
 import quiz_logo from '../img/quiz_logo.png';
 import editor_logo  from '../img/editor_logo.png';   
-import welcome from '../img/welcome.png';
+import welcome from '../img/welcome.webp';
 
 const Right = ({ activeIndex, onSetActiveIndex, isSyncing }) => {
     //const [activeIndex, setActiveIndex] = useState(0);
@@ -91,7 +91,8 @@ const Right = ({ activeIndex, onSetActiveIndex, isSyncing }) => {
                 {images.map((image, index) => (
                     <div
                         key={image.id}
-                        className={`gallery-item ${index === activeIndex ? 'active' : ''}`}
+                        // className={`gallery-item ${index === activeIndex ? 'active' : ''}`}
+                        className={`gallery-item ${index === activeIndex ? 'active' : ''} ${index === 0 ? 'welcome' : ''}`}
                     >
                     <a
                         key={index}
@@ -100,7 +101,7 @@ const Right = ({ activeIndex, onSetActiveIndex, isSyncing }) => {
                         rel="noopener noreferrer"
                         className="gallery-item"
                     >
-                        <img src={image.src} alt={image.alt} className="full-cover-image" />
+                    <img src={image.src} alt={image.alt} className="full-cover-image" />
                     </a>
                     </div>
                 ))}

@@ -94,17 +94,17 @@
     .btn-up,
     .btn-down {
         left: 50%;
-        padding: 10px 20px;   /* Increase padding for easier touch interaction */
-        font-size: 1.2em;      /* Slightly increase the font size for visibility */
-        opacity: 0.8;          /* Set a higher opacity on mobile for better visibility */
+        padding: 10px 20px; 
+        font-size: 1.2em;    
+        opacity: 0.8;      
     }
 
     .btn-up {
-        top: 10%;             /* Adjust top positioning */
+        top: 10%;            
     }
 
     .btn-down {
-        bottom: 10%;          /* Adjust bottom positioning */
+        bottom: 10%;         
     }
 
     /* Make buttons more accessible and visible */
