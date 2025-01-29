@@ -6,6 +6,7 @@ import Skills from '../Skills';
 import Editor from '../project/Editor';
 import Nails from '../project/Nails';
 import Quiz from '../project/Quiz'; 
+import Bot from '../Bot';
 
 const Left = ({ activeIndex, onSetActiveIndex }) => {
     const btnRef = useRef(null);
@@ -13,6 +14,7 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
     const nailRef = useRef(null);
     const quizRef = useRef(null);
     const editorRef = useRef(null);
+    const [botOn, setBotOn] = useState(false);
     const [currentTarget, setCurrentTarget] = useState(0);
     const targets = [infoRef, nailRef, editorRef, quizRef];
 
@@ -48,6 +50,10 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
                 setCurrentTarget(prevTarget);
             }
         }
+    };
+
+    const handleBotClick = () => {
+        setBotOn(!botOn);
     };
 
     return (
@@ -104,7 +110,12 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
                         <p>💡 "A miracle, or in other words, the result of hard work."</p>
                     </div>
                 </div>
+                
+                {/* chatbot */}
+                <button onClick={handleBotClick}>Chat Bot</button>
+                {botOn ? <Bot /> : null}
             </div>
+
             
 
             {/* scroll buttons */}
