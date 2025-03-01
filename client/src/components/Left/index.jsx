@@ -16,6 +16,7 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
     const quizRef = useRef(null);
     const editorRef = useRef(null);
     const weatherRef = useRef(null);
+    const [botOn, setBotOn] = useState(false);
     const [currentTarget, setCurrentTarget] = useState(0);
     const targets = [infoRef, nailRef, editorRef, quizRef, weatherRef];
 
