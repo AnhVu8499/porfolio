@@ -3,6 +3,7 @@ import './styles.css';
 import resume from '../img/Anh_Vu_Resume.pdf';
 import avatar from '../img/avatar.jpg';
 import Skills from '../Skills';
+import Weather from '../project/Weather';
 import Editor from '../project/Editor';
 import Nails from '../project/Nails';
 import Quiz from '../project/Quiz'; 
@@ -13,8 +14,9 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
     const nailRef = useRef(null);
     const quizRef = useRef(null);
     const editorRef = useRef(null);
+    const weatherRef = useRef(null);
     const [currentTarget, setCurrentTarget] = useState(0);
-    const targets = [infoRef, nailRef, editorRef, quizRef];
+    const targets = [infoRef, nailRef, editorRef, quizRef, weatherRef];
 
 
     useEffect(() => {
@@ -49,6 +51,22 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
             }
         }
     };
+
+    const disableScroll = (event) => {
+        event.preventDefault(); 
+    };
+    
+    useEffect(() => {
+        const lefDiv = btnRef.current;
+        if (lefDiv) {
+            lefDiv.addEventListener('wheel', disableScroll, { passive: false });
+        }
+        return () => {
+            if (lefDiv) {
+                lefDiv.removeEventListener('wheel', disableScroll);
+            }
+        };
+    }, []);
 
     return (
         <div className="left" ref={btnRef}>
@@ -124,6 +142,7 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
             <Nails ref={nailRef}/>
             <Editor ref={editorRef}/>
             <Quiz ref={quizRef}/>
+            <Weather ref={weatherRef}/>
             
         </div>
     );
