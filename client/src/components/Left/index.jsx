@@ -7,6 +7,7 @@ import Weather from '../project/Weather';
 import Editor from '../project/Editor';
 import Nails from '../project/Nails';
 import Quiz from '../project/Quiz'; 
+import Bot from '../Bot';
 
 const Left = ({ activeIndex, onSetActiveIndex }) => {
     const btnRef = useRef(null);
@@ -68,6 +69,10 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
         };
     }, []);
 
+    const handleBotClick = () => {
+        setBotOn(!botOn);
+    };
+
     return (
         <div className="left" ref={btnRef}>
             <div className="info" ref={infoRef}>
@@ -122,7 +127,12 @@ const Left = ({ activeIndex, onSetActiveIndex }) => {
                         <p>💡 "A miracle, or in other words, the result of hard work."</p>
                     </div>
                 </div>
+                
+                {/* chatbot */}
+                <button onClick={handleBotClick}>Chat Bot</button>
+                {botOn ? <Bot /> : null}
             </div>
+
             
 
             {/* scroll buttons */}
